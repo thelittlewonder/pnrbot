@@ -125,6 +125,6 @@ Test out your bot. On receiving a search term, it should reply back with the def
 
 ## Support
 
-If you happen to get stuck anywhere, feel free to raise an issue [here](https://github.com/littewonder/PNR-bot/issues)
+If you happen to get stuck anywhere, feel free to raise an issue [here](https://github.com/littlewonder/PNR-bot/issues)
 
 Also, you can contact me via [email](mailto:abhi.312.sharma@gmail.com) or [twitter](https://twitter.com/lilwonderspeaks) or [facebook](https://www.fb.com/intellectualbadass).
