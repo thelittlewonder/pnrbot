@@ -57,11 +57,11 @@ $ curl -X POST "https://graph.facebook.com/v2.6/me/subscribed_apps?access_token=
 ```
 $ hasura quickstart thelittlewonder/PNR-bot
 $ cd PNR-bot
-# Add FACEBOOK_VERIFY_TOKEN to secrets. This is any pass phrase that you decide on, keep a note on what you are choosing as your verify token, we will be using it later while setting things up for your bot on the facebook developer page.
+#Add FACEBOOK_VERIFY_TOKEN to secrets. This is any pass phrase that you decide on, keep a note on what you are choosing as your verify token, we will be using it later while setting things up for your bot on the facebook developer page.
 $ hasura secrets update bot.fb_verify_token.key <YOUR-VERIFY-TOKEN>
-# Add FACEBOOK_PAGE_ACCESS_TOKEN to secrets
+#Add FACEBOOK_PAGE_ACCESS_TOKEN to secrets
 $ hasura secrets update bot.fb_page_token.key <YOUR-FB-PAGE-ACCESS-TOKEN>
-# Deploy
+#Deploy
 $ git add . && git commit -m "Deployment commit"
 $ git push hasura master
 ```
@@ -79,24 +79,24 @@ You will get an output like so:
 INFO Getting microservices...                     
 INFO Custom microservices: 
 USER MS NAME     STATUS      INTERNAL-URL       EXTERNAL-URL          
-bot              Running     bot.default:80     http://bot.aerial82.hasura-app.io
+bot              Running     bot.default:80     http://bot.deathblow36.hasura-app.io
 
 INFO Hasura microservices: 
 HASURA MS NAME     STATUS      INTERNAL-URL                  EXTERNAL-URL
 session-redis      Running     session-redis.hasura:6379     
 gateway            Running                                   
-notify             Running     notify.hasura:80              http://notify.aerial82.hasura-app.io
+notify             Running     notify.hasura:80              http://notify.deathblow36.hasura-app.io
 le-agent           Running                                   
-data               Running     data.hasura:80                http://data.aerial82.hasura-app.io
+data               Running     data.hasura:80                http://data.deathblow36.hasura-app.io
 platform-sync      Running                                   
 postgres           Running     postgres.hasura:5432          
 sshd               Running                                   
-auth               Running     auth.hasura:80                http://auth.aerial82.hasura-app.io
-filestore          Running     filestore.hasura:80           http://filestore.aerial82.hasura-app.io
+auth               Running     auth.hasura:80                http://auth.deathblow36.hasura-app.io
+filestore          Running     filestore.hasura:80           http://filestore.deathblow36.hasura-app.io
 
 ```
 
-Find the EXTERNAL-URL for the service named `bot`(in this case -> https://bot.aerial82.hasura-app.io).
+Find the EXTERNAL-URL for the service named `bot`(in this case -> https://bot.deathblow36.hasura-app.io).
 
 ### Enabling webhooks
 
@@ -104,7 +104,7 @@ In your fb app page, scroll down until you find a card name `Webhooks`. Click on
 
 ![Enable webhooks2](https://github.com/littlewonder/PNR-bot/raw/master/assets/Tutorial-5.png)
 
-* The `callback URL` is the URL that the facebook servers will hit to verify as well as forward the messages sent to our bot. The nodejs app in this project uses the `/webhook` path as the `callback URL`. Making the `callback URL` https://bot.YOUR-CLUSTER-NAME.hasura-app.io/webhook (in this case -> https://bot.aerial82.hasura-app.io/webhook/)
+* The `callback URL` is the URL that the facebook servers will hit to verify as well as forward the messages sent to our bot. The nodejs app in this project uses the `/webhook` path as the `callback URL`. Making the `callback URL` https://bot.YOUR-CLUSTER-NAME.hasura-app.io/webhook (in this case -> https://bot.deathblow36.hasura-app.io/webhook/)
 * The `verify token`is the verify token that you set in your secrets above (in the command `$ hasura secrets update bot.fb_verify_token.key <YOUR-VERIFY-TOKEN>`)
 * After selecting all the `Subsciption Fields`. Submit and save.
 * You will also see another section under `Webhooks` that says `Select a page to subscribe your webhook to the page events`, ensure that you select the respective facebook page here.
@@ -123,15 +123,8 @@ Next, open up your facebook page.
 
 Test out your bot. On receiving a search term, it should reply back with the definition/description, straight from its Wiki Article page.
 
-**Here is the bot in action**
-
-
-![Wiki Bot in Action](https://github.com/utk1801/fb-messenger-WikiBot/blob/master/assets/WikiBot.gif) 
-
-Click [here](https://github.com/utk1801/fb-messenger-WikiBot/blob/master/assets/WikiBot.gif) if the GIF doesn't load here. 
-
 ## Support
 
-If you happen to get stuck anywhere, feel free to raise an issue [here](https://github.com/utk1801/fb-messenger-WikiBot/issues)
+If you happen to get stuck anywhere, feel free to raise an issue [here](https://github.com/littewonder/PNR-bot/issues)
 
-Also, you can contact me via [email](mailto:utkarsh_garg@live.com) or [twitter](https://twitter.com/utk_1801) or [facebook](https://www.fb.com/utk1801).
+Also, you can contact me via [email](mailto:abhi.312.sharma@gmail.com) or [twitter](https://twitter.com/lilwonderspeaks) or [facebook](https://www.fb.com/intellectualbadass).
