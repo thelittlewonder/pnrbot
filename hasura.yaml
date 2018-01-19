@@ -1,6 +1,5 @@
 description: A facebook messenger bot to check PNR status of an indian railway ticket, deployed on Hasura platform.
-keywords: bot, facebook, nodejs, express, request, pnr, indian railways, pnr status, node, javascript, messenger, messenger bot,
-  chatbot
+keywords: bot, facebook, nodejs, express, request, pnr, indian railways, pnr status, node, javascript, messenger, messenger bot, chatbot
 media: {}
 name: PNR-bot
 platformVersion: v0.15.3
