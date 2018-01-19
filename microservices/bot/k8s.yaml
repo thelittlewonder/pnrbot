@@ -1,0 +1,63 @@
+apiVersion: v1
+items:
+- apiVersion: extensions/v1beta1
+  kind: Deployment
+  metadata:
+    creationTimestamp: null
+    labels:
+      app: bot
+      hasuraService: custom
+    name: bot
+    namespace: '{{ cluster.metadata.namespaces.user }}'
+  spec:
+    replicas: 1
+    strategy: {}
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: bot
+      spec:
+        containers:
+        - image: hasura/hello-world:latest
+          env:
+            - name: FACEBOOK_VERIFY_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: bot.fb_verify_token.key
+                  name: hasura-secrets
+            - name: FACEBOOK_PAGE_ACCESS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: bot.fb_page_token.key
+                  name: hasura-secrets
+          imagePullPolicy: IfNotPresent
+          name: bot
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+        securityContext: {}
+        terminationGracePeriodSeconds: 0
+  status: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: null
+    labels:
+      app: bot
+      hasuraService: custom
+    name: bot
+    namespace: '{{ cluster.metadata.namespaces.user }}'
+  spec:
+    ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: bot
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata: {}
