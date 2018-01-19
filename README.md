@@ -1,10 +1,12 @@
-# Building a Wiki Bot for Facebook Messenger on Hasura
+# Building a PNR status Bot for Facebook Messenger on Hasura
 
-A Facebook chatbot hosted on Hasura platform ,that fetches definitions/descriptions of the user search terms/inputs, in real time, using Wikipedia API.
+### A Facebook chatbot hosted on Hasura platform to check the PNR status of an Indian Railway ticket in real time.
 
-## GitHub Repo: https://github.com/utk1801/fb-messenger-WikiBot
+IndianRail.ai tells the latest seat berth status of passenger in Indian Railways i.e. whether passenger has got confirmed reservation, Reservation Against Cancellation (RAC) or the passenger is in waiting list. For waiting list or rac passengers, irctc pnr status might change to confirmed in future if other passengers on this trip cancel their journey. For passengers who have cancelled their trip, it is shown as Can/Mod. It also tells the train name and the charting status. Once final chart is prepared, the status freezes and does not change after that
 
-This tutorial is a guide to run a **Wikipedia bot on facebook messenger**, which when given a searchTerm replies back with the Definition/Description for that term ,from the Wikipedia articles.
+## GitHub Repo: https://github.com/littlewonder/PNR-bot/
+
+This tutorial is a guide to run a **PNR bot on facebook messenger**, which when given a valid PNR number replies back with the current status of the ticket, along with train details and charting status. You can read the [documentation](https://developers.facebook.com/docs/messenger-platform/quickstart) the Messenger team prepared.
 
 For the chat bot to function we'll need a server that will receive the messages sent by the Facebook users, process this message and respond back to the user. To send messages back to the server we will use the graph API provided by Facebook. For the Facebook servers to talk to our server, the endpoint URL of our server should be accessible to the Facebook server and should use a secure HTTPS URL. For this reason, running our server locally will not work and instead we need to host our server online. In this tutorial, we are going to deploy our server on Hasura which automatically provides SSL-enabled domains.
 
@@ -21,15 +23,15 @@ For the chat bot to function we'll need a server that will receive the messages 
 * Navigate to https://developers.facebook.com/apps/
 * Click on **'+ Create a new app’**.
 
-![Fb app screen](https://raw.githubusercontent.com/geekysrm/fb-messenger-weather-bot/master/assets/tutorial_1.png "fb app screen")
+![Fb app screen](https://github.com/littlewonder/PNR-bot/raw/master/assets/Tutorial-1.png)
 
 * Give a display name for your app and your contact email.
 
-![Fb app screen2](https://raw.githubusercontent.com/geekysrm/fb-messenger-weather-bot/master/assets/tutorial_2.png "fb app screen2")
+![Fb app screen2](https://github.com/littlewonder/PNR-bot/raw/master/assets/Tutorial-2.png)
 
 * In the select a product screen, hover over **Messenger** and click on **Set Up**
 
-![Fb app screen3](https://raw.githubusercontent.com/geekysrm/fb-messenger-weather-bot/master/assets/tutorial_3.png "fb app screen3")
+![Fb app screen3](https://github.com/littlewonder/PNR-bot/raw/master/assets/Tutorial-3.png)
 
 * To start using the bot, we need a facebook page to host our bot.
   + Scroll over to the **Token Generation** section
@@ -37,7 +39,7 @@ For the chat bot to function we'll need a server that will receive the messages 
   + Once you have selected a page, a *Page Access Token* will be generated for you.
   + Save this token somewhere.
 
-![Page token](https://raw.githubusercontent.com/geekysrm/fb-messenger-weather-bot/master/assets/tutorial_4.png "Page token")
+![Page token](https://github.com/littlewonder/PNR-bot/raw/master/assets/Tutorial-4.png)
 
 * Now, we need to trigger the facebook app to start sending us messages
   - Switch back to the terminal
@@ -48,13 +50,13 @@ For the chat bot to function we'll need a server that will receive the messages 
 $ curl -X POST "https://graph.facebook.com/v2.6/me/subscribed_apps?access_token=<PAGE_ACCESS_TOKEN>"
 ```
 
-* In this project, we are using WIkipedia API hosted at https://www.mediawiki.org/wiki/API:Main_page to get the Description for the searched text. This is an open search API and hence,you need not obtain any API Key for this. 
+* In this project, we are making requests to Erail to get the PNR Description for the searched text. Since we are scraping the web,you need not obtain any API Key for this. 
 
 ### Getting the Hasura project
 
 ```
-$ hasura quickstart utkarsh/fb-messenger-wiki-bot
-$ cd fb-messenger-wiki-bot
+$ hasura quickstart thelittlewonder/PNR-bot
+$ cd PNR-bot
 # Add FACEBOOK_VERIFY_TOKEN to secrets. This is any pass phrase that you decide on, keep a note on what you are choosing as your verify token, we will be using it later while setting things up for your bot on the facebook developer page.
 $ hasura secrets update bot.fb_verify_token.key <YOUR-VERIFY-TOKEN>
 # Add FACEBOOK_PAGE_ACCESS_TOKEN to secrets
@@ -100,7 +102,7 @@ Find the EXTERNAL-URL for the service named `bot`(in this case -> https://bot.ae
 
 In your fb app page, scroll down until you find a card name `Webhooks`. Click on the `setup webhooks` button.
 
-![Enable webhooks2](https://raw.githubusercontent.com/geekysrm/fb-messenger-weather-bot/master/assets/tutorial_5.png "Enable webhooks2")
+![Enable webhooks2](https://github.com/littlewonder/PNR-bot/raw/master/assets/Tutorial-5.png)
 
 * The `callback URL` is the URL that the facebook servers will hit to verify as well as forward the messages sent to our bot. The nodejs app in this project uses the `/webhook` path as the `callback URL`. Making the `callback URL` https://bot.YOUR-CLUSTER-NAME.hasura-app.io/webhook (in this case -> https://bot.aerial82.hasura-app.io/webhook/)
 * The `verify token`is the verify token that you set in your secrets above (in the command `$ hasura secrets update bot.fb_verify_token.key <YOUR-VERIFY-TOKEN>`)
@@ -113,7 +115,7 @@ Next, open up your facebook page.
 
 * Instead, if your button says **+ Add Button**, click on it.
 
-![Add button](https://github.com/utk1801/fb-messenger-WikiBot/blob/master/assets/tutorial_6.png?raw=true "Add button")
+![Add button](https://github.com/littlewonder/PNR-bot/raw/master/assets/Tutorial-6.png)
 
 * Next, click on **Use our messenger bot**. Then, **Get Started** and finally **Add Button**.
 * You will now see that the **+ Add button** has now changed to **Get Started**. Hovering over this will show you a list with an item named **Test this button**. Click on it to start chatting with your bot.
