@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="33px" height="33px" viewBox="0 0 33 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="37px" height="37px" viewBox="0 0 37 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
     <title>facebook-official - FontAwesome</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1110.000000, -801.000000)" font-family="FontAwesome" font-size="38.0952381" font-weight="normal">
-        <text id="facebook-official---FontAwesome" fill="#CACACA">
-            <tspan x="1110" y="831"></tspan>
-        </text>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1107.000000, -824.000000)">
+        <g id="Group-3" transform="translate(80.000000, 97.000000)" fill="#CACACA">
+            <path d="M1061.30105,727.901075 C1062.38437,727.901075 1063.26024,728.776948 1063.26024,729.860264 L1063.26024,761.345581 C1063.26024,762.428897 1062.38437,763.30477 1061.30105,763.30477 L1052.28878,763.30477 L1052.28878,749.590448 L1056.87559,749.590448 L1057.56707,744.243015 L1052.28878,744.243015 L1052.28878,740.831721 C1052.28878,739.28742 1052.70367,738.250202 1054.93945,738.250202 L1057.75146,738.227153 L1057.75146,733.455952 C1057.26743,733.386804 1055.58483,733.248508 1053.64869,733.248508 C1049.56897,733.248508 1046.75696,735.73783 1046.75696,740.301588 L1046.75696,744.243015 L1042.1471,744.243015 L1042.1471,749.590448 L1046.75696,749.590448 L1046.75696,763.30477 L1029.81574,763.30477 C1028.73242,763.30477 1027.85655,762.428897 1027.85655,761.345581 L1027.85655,729.860264 C1027.85655,728.776948 1028.73242,727.901075 1029.81574,727.901075 L1061.30105,727.901075 Z" id="facebook-official---FontAwesome"></path>
+        </g>
     </g>
 </svg>
