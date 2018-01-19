@@ -1,0 +1,245 @@
+//reset.css
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+//branding.css
+$brand: #0084FF;
+@media only screen and (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        .controls{
+            justify-content: center;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        .content {
+            width: 50%;
+        }
+    }
+}
+
+.container {
+    padding: 2em;
+    margin-top: 4em;
+    .app {
+        img {
+            height: 75vh;
+        }
+    }
+    .content {
+        h1 {
+            font-family: 'Poppins';
+            font-weight: 700;
+            font-size: 4em;
+            line-height: 1.5em;
+            color: #363636;
+        }
+        .highlight {
+            background-color: $brand;
+            color: #fff;
+            padding: 0px 12px 0px 12px;
+        }
+        p {
+            font-family: 'Poppins';
+            font-size: 1.2em;
+            font-weight: 300;
+            color: #838383;
+            letter-spacing: 0;
+            line-height: 1.8em;
+        }
+        .controls {
+            margin: 24px 0px 24px 0px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            a {
+                margin-right: 2.5em;
+                button {
+                    background: $brand;
+                    border-radius: 5px;
+                    padding: 0.8em;
+                    font-family: 'Poppins';
+                    font-size: 1.2em;
+                    color: #FFFFFF;
+                    font-weight: 300;
+                    transition: all 0.25s ease-in-out;
+                    border: none;
+                    img {
+                        margin-right: 0.5em;
+                        vertical-align: middle;
+                    }
+                    &:hover {
+                        background: darken($brand, 2%);
+                        transform: scale(1.02);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    text-align: center;
+    .divider {
+        width: 80vw;
+        float: left;
+        margin-right: 2em;
+        height: 0px;
+        border: 0.5px solid #C3C3C3;
+    }
+    p {
+        font-family: 'Poppins';
+        font-weight: 400;
+        font-size: 0.8em;
+        color: #828282;
+        letter-spacing: 0;
+        a{
+            text-decoration: none;
+        }
+    }
+    .link-highlight {
+        font-weight: 500;
+        color: $brand;
+    }
+}
