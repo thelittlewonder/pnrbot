@@ -6,7 +6,7 @@
 
 IndianRail.ai tells the latest seat berth status of passenger in Indian Railways i.e. whether passenger has got confirmed reservation, Reservation Against Cancellation (RAC) or the passenger is in waiting list. For waiting list or rac passengers, irctc pnr status might change to confirmed in future if other passengers on this trip cancel their journey. For passengers who have cancelled their trip, it is shown as Can/Mod. It also tells the train name and the charting status. Once final chart is prepared, the status freezes and does not change after that
 
-## GitHub Repo: https://github.com/littlewonder/PNR-bot/
+## On Hasura Hub: https://hasura.io/hub/project/thelittlewonder/pnr-bot
 
 This tutorial is a guide to run a **PNR bot on facebook messenger**, which when given a valid PNR number replies back with the current status of the ticket, along with train details and charting status. You can read the [documentation](https://developers.facebook.com/docs/messenger-platform/quickstart) the Messenger team prepared.
 
