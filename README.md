@@ -4,6 +4,8 @@
 
 ![Demo](https://github.com/littlewonder/PNR-bot/raw/master/assets/full-demo.gif)
 
+http://littlewonder.github.io/pnrbot
+
 IndianRail.ai tells the latest seat berth status of passenger in Indian Railways i.e. whether passenger has got confirmed reservation, Reservation Against Cancellation (RAC) or the passenger is in waiting list. For waiting list or rac passengers, irctc pnr status might change to confirmed in future if other passengers on this trip cancel their journey. For passengers who have cancelled their trip, it is shown as Can/Mod. It also tells the train name and the charting status. Once final chart is prepared, the status freezes and does not change after that
 
 ## On Hasura Hub: https://hasura.io/hub/project/thelittlewonder/pnr-bot
